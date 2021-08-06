@@ -38,8 +38,20 @@
 import draggable from 'vuedraggable';
 import Projects from '../services/Projects.vue';
 
+// const message = [
+//   'vue.draggable',
+//   'draggable',
+//   'component',
+//   'for',
+//   'vue.js 2.0',
+//   'based',
+//   'on',
+//   'Sortablejs',
+// ];
+
+// const order = message.length;
 export default {
-  name: 'Projects_Twitch',
+  name: 'transition-example',
   display: 'Transition',
   order: 6,
   components: {
@@ -48,10 +60,14 @@ export default {
   async setup() {
     const project = await Projects.get();
     return {
-      list: project.map((data, index) => ({
+      project,
+    };
+  },
+  data() {
+    return {
+      list: this.project.map((data, index) => ({
         id: data.id, name: data.name, status: data.status, order: index + 1,
       })),
-      order: project.length,
     };
   },
   methods: {
@@ -62,7 +78,7 @@ export default {
   computed: {
     dragOptions() {
       return {
-        animation: 200,
+        animation: 0,
         group: 'description',
         disabled: false,
         ghostClass: 'ghost',
