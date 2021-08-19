@@ -38,18 +38,6 @@
 import draggable from 'vuedraggable';
 import Projects from '../services/Projects.vue';
 
-// const message = [
-//   'vue.draggable',
-//   'draggable',
-//   'component',
-//   'for',
-//   'vue.js 2.0',
-//   'based',
-//   'on',
-//   'Sortablejs',
-// ];
-
-// const order = message.length;
 export default {
   name: 'transition-example',
   display: 'Transition',
@@ -73,6 +61,9 @@ export default {
   methods: {
     sort() {
       this.list = this.list.sort((a, b) => a.order - b.order);
+    },
+    test() {
+
     },
   },
   computed: {
